@@ -1,1 +1,7 @@
 <p>customer-entry works!</p>
+
+<div class="col">
+  <div class="row" *ngFor="let customer of customers">
+    <h1>{{customer.name}}: {{customer.email}}</h1>
+  </div>
+</div>

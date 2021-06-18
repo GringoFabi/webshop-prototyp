@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import {ApiService} from "../../api/api.service";
 
 @Component({
   selector: 'app-shop-entry',
@@ -7,9 +8,13 @@ import { Component, OnInit } from '@angular/core';
 })
 export class ShopEntryComponent implements OnInit {
 
-  constructor() { }
+  shops: any;
+
+  constructor(private readonly api: ApiService) { }
 
   ngOnInit(): void {
+    this.api.getShops().subscribe(value => {
+      this.shops = value
+    })
   }
-
 }

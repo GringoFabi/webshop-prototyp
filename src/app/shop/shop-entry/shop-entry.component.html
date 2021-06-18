@@ -1,1 +1,8 @@
 <p>shop-entry works!</p>
+
+
+<div class="col">
+  <div class="row" *ngFor="let shop of shops">
+    <h1>{{shop.name}}: {{shop.owner}}</h1>
+  </div>
+</div>

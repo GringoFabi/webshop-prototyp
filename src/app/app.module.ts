@@ -6,6 +6,8 @@ import { AppComponent } from './app.component';
 import { HomeComponent } from './home/home.component';
 import { ShopEntryComponent } from './shop/shop-entry/shop-entry.component';
 import { CustomerEntryComponent } from './customer/customer-entry/customer-entry.component';
+import { ApiModule } from "./api/api.module";
+import { HttpClientModule } from "@angular/common/http";
 
 @NgModule({
   declarations: [
@@ -16,7 +18,9 @@ import { CustomerEntryComponent } from './customer/customer-entry/customer-entry
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule
+    AppRoutingModule,
+    ApiModule,
+    HttpClientModule
   ],
   providers: [],
   bootstrap: [AppComponent]
