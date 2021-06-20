@@ -1,11 +1,19 @@
 package main
 
 import (
+  "fmt"
   "github.com/gin-contrib/cors"
   "github.com/gin-gonic/gin"
   "main/database"
   "time"
 )
+
+type LoginCommand struct {
+  ShopName string `json:"shopName"`
+  Email string `json:"email"`
+  Password string `json:"password"`
+  StayLoggedIn bool `json:"stayLoggedIn"`
+}
 
 func main() {
   r := gin.Default()
@@ -30,6 +38,13 @@ func main() {
         return
       }
       c.JSON(200, shops)
+    })
+
+    shopApi.POST("/login", func(c *gin.Context) {
+      var login LoginCommand
+      c.BindJSON(&login)
+      fmt.Printf("Logging in: %s", login)
+      c.JSON(200, login)
     })
 
     shopApi.GET("/:name", func(c *gin.Context) {

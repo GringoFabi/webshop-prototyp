@@ -1,0 +1,13 @@
+.label {
+  font-size: 20px;
+  font-weight: bolder;
+}
+
+.form-container {
+  border-radius: 5px;
+  display: flex;
+  flex-flow: column;
+  height: 100%;
+  overflow: auto;
+  background: #212529;
+}

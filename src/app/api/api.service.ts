@@ -23,8 +23,10 @@ export class ApiService {
   }
 
   getCustomers(): Observable<any> {
-    console.log('Get customers...')
     return this.httpClient.get(`${environment.api}/customer/`, this.httpOptions);
   }
 
+  loginShopOwner(data: any): Observable<any> {
+    return this.httpClient.post(`${environment.api}/shop/login`, data, this.httpOptions);
+  }
 }
