@@ -55,6 +55,24 @@ func main() {
       }
       c.JSON(200, shop)
     })
+
+    shopApi.GET("/shopByOwner/:owner", func(c *gin.Context) {
+      shops, err := database.GetShopsByOwner(c.Param("owner"))
+      if err != nil {
+        c.String(404, err.Error())
+        return
+      }
+      c.JSON(200, shops)
+    })
+
+    shopApi.GET("/shopByEmail/:email", func(c *gin.Context) {
+      shops, err := database.GetShopsByEmail(c.Param("email"))
+      if err != nil {
+        c.String(404, err.Error())
+        return
+      }
+      c.JSON(200, shops)
+    })
   }
 
   customerApi := r.Group("/customer")

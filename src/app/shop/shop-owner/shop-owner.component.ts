@@ -26,7 +26,12 @@ export class ShopOwnerComponent implements OnInit {
   ngOnInit(): void {
     if (this.shopService.activeShop) {
       this.shop = this.shopService.activeShop;
-      console.log(this.shop)
+      this.loginForm.setValue({
+        shopName: this.shop.name,
+        email: this.shop.email,
+        password: '',
+        stayLoggedIn: true
+      })
     }
   }
 
@@ -34,7 +39,7 @@ export class ShopOwnerComponent implements OnInit {
     const { shopName, email, password } = this.loginForm.value;
     if (shopName && email && password) {
       this.apiService.loginShopOwner(this.loginForm.value).subscribe(value => {
-        this.router.navigate([`/shop/owner/${shopName}`])
+        this.router.navigate([`/shop/dashboard/${email}`]);
       });
     }
   }

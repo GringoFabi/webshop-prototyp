@@ -49,3 +49,35 @@ func GetShops() ([]shop, error) {
   }
   return shops, nil
 }
+
+func GetShopsByOwner(owner string) ([]shop, error){
+  if len(shops) <= 0 {
+    return nil, errors.New("no shops available")
+  }
+  var ownedShops []shop
+  for _, s := range shops {
+    if s.Owner == owner {
+      ownedShops = append(ownedShops, s)
+    }
+  }
+  if len(ownedShops) <= 0 {
+    return nil, errors.New("user owns no shops")
+  }
+  return ownedShops, nil
+}
+
+func GetShopsByEmail(email string) ([]shop, error){
+  if len(shops) <= 0 {
+    return nil, errors.New("no shops available")
+  }
+  var ownedShops []shop
+  for _, s := range shops {
+    if s.Email == email {
+      ownedShops = append(ownedShops, s)
+    }
+  }
+  if len(ownedShops) <= 0 {
+    return nil, errors.New("user owns no shops")
+  }
+  return ownedShops, nil
+}
