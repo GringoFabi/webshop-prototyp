@@ -10,6 +10,7 @@ type (
     Name string `json:"name"`
     Owner string `json:"owner"`
     Email string `json:"email"`
+    Description string `json:"description"`
   }
 
   customer struct {
@@ -20,10 +21,12 @@ type (
 
 var shops []shop
 var customers []customer
+var products []Product
 
 func init() {
   initCustomer()
   initShop()
+  initProducts()
 }
 
 func logErr(msg interface{}) {

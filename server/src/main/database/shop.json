@@ -2,21 +2,25 @@
   {
     "name": "Fabi's Shop",
     "email": "fabi@mail.com",
-    "owner": "Fabi M."
+    "owner": "Fabi M.",
+    "description": "Fabi's first shop"
   },
   {
     "name": "Fabi's Second Shop",
     "email": "fabi@mail.com",
-    "owner": "Fabi M."
+    "owner": "Fabi M.",
+    "description": "Fabi's second shop"
   },
   {
     "name": "Fabi's Third Shop",
     "email": "fabi@mail.com",
-    "owner": "Fabi M."
+    "owner": "Fabi M.",
+    "description": "Fabi's third shop"
   },
   {
     "name": "User's Hardwareshop",
     "email": "user2@mail.com",
-    "owner": "user2"
+    "owner": "user2",
+    "description": "Another person's shop!"
   }
 ]

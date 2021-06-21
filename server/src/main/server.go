@@ -96,6 +96,18 @@ func main() {
     })
   }
 
+  productApi := r.Group("/products")
+  {
+    productApi.GET("/", func(c *gin.Context) {
+      products, err := database.GetProducts()
+      if err != nil {
+        c.String(404, err.Error())
+        return
+      }
+      c.JSON(200, products)
+    })
+  }
+
   err := r.Run(":4201")
   if err != nil {
     return
