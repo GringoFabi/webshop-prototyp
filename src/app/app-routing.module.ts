@@ -15,7 +15,8 @@ const routes: Routes = [
   { path: 'shop/login', component: ShopOwnerComponent},
   { path: 'shop/:name', component: ShopPageComponent},
   { path: 'shop/owner/:shopName', component: ShopEditComponent},
-  { path: 'shop/dashboard/:email', component: DashboardComponent}
+  { path: 'shop/dashboard/:email', component: DashboardComponent},
+  { path: 'shop/edit/:name', component: ShopEditComponent}
 ];
 
 @NgModule({

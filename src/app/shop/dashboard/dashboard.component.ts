@@ -33,6 +33,6 @@ export class DashboardComponent implements OnInit {
 
   openEditor(shop: any) {
     this.shopService.activeShop = shop;
-
+    this.router.navigate([`/shop/edit/${shop.name}`])
   }
 }

@@ -1,1 +1,46 @@
-<p>shop-edit works!</p>
+<div *ngIf="shop" class="shop-edit mt-3">
+  <div class="col pb-1">
+
+    <div class="row mx-3">
+
+      <button type="submit" class="btn btn-dark btn-outline-light" (click)="onSubmit()"
+              style="float: right;">Save</button>
+
+    </div>
+
+    <div class="row mx-3">
+
+      <div class="media d-flex">
+
+        <img src="assets/img/shop.svg" class="align-self-start mx-3 mt-3" style="min-width: 64px" alt="shop">
+        <div class="media-body mx-3 mt-1">
+
+
+          <h5 class="mt-0">{{shop.name}}</h5>
+          <form style="color: white" [formGroup]="shopEditForm" (ngSubmit)="onSubmit()">
+
+            <div class="input-group mb-3">
+              <div class="input-group-prepend">
+                <span class="input-group-text" id="shopDescInputHelp">Description</span>
+              </div>
+              <input type="text" class="form-control" aria-describedby="shopDescInputHelp"
+                     formControlName="description">
+            </div>
+
+            <div class="input-group mb-3">
+              <div class="input-group-prepend">
+                <span class="input-group-text" id="shopOwnerInputHelp">Owner</span>
+              </div>
+              <input type="text" class="form-control" aria-describedby="shopOwnerInputHelp"
+                     formControlName="owner">
+            </div>
+          </form>
+
+        </div>
+      </div>
+
+    </div>
+
+  </div>
+
+</div>

@@ -1,3 +1,19 @@
-<p>shop-page works!</p>
 
-<h1>{{this.shop.name}}</h1>
+<div *ngIf="shop && products">
+
+  <h1 style="color: white">{{this.shop.name}}</h1>
+
+  <div *ngFor="let product of products">
+    <div class="row mx-3 mb-3" style="background: #212529; border-radius: 5px">
+      <div class="col-auto my-1">
+        <img src="assets/img/electric-guitar.png" alt="product" style="color: white">
+      </div>
+      <div class="col" style="color: white">
+        <h3>{{product.name}}</h3>
+        <h4>{{product.description}}</h4>
+        <h5>Condition: {{product.condition}}</h5>
+        <h5>Price: {{product.price}}€</h5>
+      </div>
+    </div>
+  </div>
+</div>
