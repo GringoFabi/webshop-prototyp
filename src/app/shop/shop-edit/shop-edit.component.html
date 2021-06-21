@@ -1,14 +1,14 @@
 <div *ngIf="shop" class="shop-edit mt-3">
   <div class="col pb-1">
 
-    <div class="row mx-3">
+    <div class="row mx-3 mb-3">
 
       <button type="submit" class="btn btn-dark btn-outline-light" (click)="onSubmit()"
               style="float: right;">Save</button>
 
     </div>
 
-    <div class="row mx-3">
+    <div class="row mx-3 mb-3">
 
       <div class="media d-flex">
 
@@ -41,6 +41,78 @@
 
     </div>
 
+    <div *ngIf="products">
+
+      <div *ngFor="let product of products">
+        <div class="row mx-3 mb-3" style="background: #212529; border-radius: 5px">
+          <div class="col-auto my-1">
+            <img src="assets/img/electric-guitar.png" alt="product" style="color: white">
+          </div>
+          <div class="col" style="color: white">
+            <h3>{{product.name}}</h3>
+            <h4>{{product.description}}</h4>
+            <h5>Condition: {{product.condition}}</h5>
+            <h5>Price: {{product.price}}€</h5>
+          </div>
+          <div class="col">
+            <button class="btn btn-light mt-3 remove" (click)="removeProduct(product)">-</button>
+          </div>
+        </div>
+      </div>
+    </div>
+
   </div>
 
+  <div class="row mx-3 mb-3">
+
+    <button type="button" class="btn btn-light btn-outline-dark" data-toggle="modal"
+            data-target="#productModal" style="float: right;">Add new product...</button>
+
+  </div>
+
+</div>
+
+<!-- Modal -->
+<div class="modal fade"
+     id="productModal"
+     aria-hidden="false">
+  <div class="modal-dialog modal-xl"
+       role="document">
+    <div class="modal-content"
+         style="background: #212529; color: white">
+      <div class="modal-header">
+        <h5 class="modal-title">Modal title</h5>
+      </div>
+      <div class="modal-body">
+
+        <form style="color: white" [formGroup]="productForm">
+
+          <div class="input-group mb-3">
+            <input type="text" class="form-control"
+                   formControlName="productName">
+          </div>
+
+          <div class="input-group mb-3">
+            <input type="text" class="form-control"
+                   formControlName="productDescription">
+          </div>
+
+          <div class="input-group mb-3">
+            <input type="text" class="form-control"
+                   formControlName="productCondition">
+          </div>
+
+          <div class="input-group mb-3">
+            <input type="text" class="form-control"
+                   formControlName="productPrice">
+          </div>
+        </form>
+
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-dark btn-outline-light" data-dismiss="modal">Close</button>
+        <button type="button" class="btn btn-light btn-outline-dark" (click)="addNewProduct()">Save product</button>
+      </div>
+    </div>
+  </div>
 </div>
