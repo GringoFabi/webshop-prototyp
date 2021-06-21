@@ -39,4 +39,8 @@ export class ApiService {
       params: { email: email }
     });
   }
+
+  getProducts(): Observable<any> {
+    return this.httpClient.get<any>(`${environment.api}/products/`, this.httpOptions);
+  }
 }
