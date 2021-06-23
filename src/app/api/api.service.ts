@@ -43,4 +43,8 @@ export class ApiService {
   getProducts(): Observable<any> {
     return this.httpClient.get<any>(`${environment.api}/products/`, this.httpOptions);
   }
+
+  getMessages(): Observable<any> {
+    return this.httpClient.get<any>(`${environment.api}/messages/`, this.httpOptions);
+  }
 }

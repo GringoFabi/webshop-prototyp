@@ -44,20 +44,14 @@
     <div *ngIf="products">
 
       <div *ngFor="let product of products">
-        <div class="row mx-3 mb-3" style="background: #212529; border-radius: 5px">
-          <div class="col-auto my-1">
-            <img src="assets/img/electric-guitar.png" alt="product" style="color: white">
-          </div>
-          <div class="col" style="color: white">
-            <h3>{{product.name}}</h3>
-            <h4>{{product.description}}</h4>
-            <h5>Condition: {{product.condition}}</h5>
-            <h5>Price: {{product.price}}€</h5>
-          </div>
-          <div class="col">
-            <button class="btn btn-light mt-3 remove" (click)="removeProduct(product)">-</button>
-          </div>
-        </div>
+        <app-product-card [product]="product" (remove)="removeProduct($event)"></app-product-card>
+      </div>
+    </div>
+
+    <div *ngIf="messages">
+
+      <div *ngFor="let message of messages">
+        <app-message-card [message]="message" (remove)="removeMessage($event)"></app-message-card>
       </div>
     </div>
 

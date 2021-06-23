@@ -22,11 +22,13 @@ type (
 var shops []shop
 var customers []customer
 var products []Product
+var messages []Message
 
 func init() {
   initCustomer()
   initShop()
   initProducts()
+  initMessages()
 }
 
 func logErr(msg interface{}) {
