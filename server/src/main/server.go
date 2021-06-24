@@ -1,7 +1,6 @@
 package main
 
 import (
-  "fmt"
   "github.com/gin-contrib/cors"
   "github.com/gin-gonic/gin"
   "main/database"
@@ -43,7 +42,6 @@ func main() {
     shopApi.POST("/login", func(c *gin.Context) {
       var login LoginCommand
       c.BindJSON(&login)
-      fmt.Printf("Logging in: %s", login)
       c.JSON(200, login)
     })
 
@@ -105,6 +103,18 @@ func main() {
         return
       }
       c.JSON(200, products)
+    })
+  }
+
+  messageApi := r.Group("/messages")
+  {
+    messageApi.GET("/", func(c *gin.Context) {
+      messages, err := database.GetMessages()
+      if err != nil {
+        c.String(404, err.Error())
+        return
+      }
+      c.JSON(200, messages)
     })
   }
 

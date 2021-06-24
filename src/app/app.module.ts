@@ -13,6 +13,8 @@ import { ShopOwnerComponent } from './shop/shop-owner/shop-owner.component';
 import {ReactiveFormsModule} from "@angular/forms";
 import { ShopEditComponent } from './shop/shop-edit/shop-edit.component';
 import { DashboardComponent } from './shop/dashboard/dashboard.component';
+import { ProductCardComponent } from './shop/product-card/product-card.component';
+import { MessageCardComponent } from './shop/message-card/message-card.component';
 
 @NgModule({
   declarations: [
@@ -23,7 +25,9 @@ import { DashboardComponent } from './shop/dashboard/dashboard.component';
     ShopPageComponent,
     ShopOwnerComponent,
     ShopEditComponent,
-    DashboardComponent
+    DashboardComponent,
+    ProductCardComponent,
+    MessageCardComponent
   ],
     imports: [
         BrowserModule,

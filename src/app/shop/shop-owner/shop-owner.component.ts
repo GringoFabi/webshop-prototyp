@@ -12,7 +12,6 @@ import {Router} from "@angular/router";
 export class ShopOwnerComponent implements OnInit {
   shop: any;
   loginForm = new FormGroup({
-    shopName: new FormControl(''),
     email: new FormControl(''),
     password: new FormControl(''),
     stayLoggedIn: new FormControl(Boolean)
@@ -27,7 +26,6 @@ export class ShopOwnerComponent implements OnInit {
     if (this.shopService.activeShop) {
       this.shop = this.shopService.activeShop;
       this.loginForm.setValue({
-        shopName: this.shop.name,
         email: this.shop.email,
         password: '',
         stayLoggedIn: true
@@ -36,8 +34,8 @@ export class ShopOwnerComponent implements OnInit {
   }
 
   onSubmit() {
-    const { shopName, email, password } = this.loginForm.value;
-    if (shopName && email && password) {
+    const { email, password } = this.loginForm.value;
+    if (email && password) {
       this.apiService.loginShopOwner(this.loginForm.value).subscribe(value => {
         this.router.navigate([`/shop/dashboard/${email}`]);
       });

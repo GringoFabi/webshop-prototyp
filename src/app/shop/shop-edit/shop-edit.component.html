@@ -1,12 +1,12 @@
+<div class="row mx-3 my-3">
+
+  <button type="submit" class="btn btn-dark btn-outline-light" (click)="onSubmit()"
+          style="float: right;">Save</button>
+
+</div>
+
 <div *ngIf="shop" class="shop-edit mt-3">
   <div class="col pb-1">
-
-    <div class="row mx-3 mb-3">
-
-      <button type="submit" class="btn btn-dark btn-outline-light" (click)="onSubmit()"
-              style="float: right;">Save</button>
-
-    </div>
 
     <div class="row mx-3 mb-3">
 
@@ -41,25 +41,50 @@
 
     </div>
 
-    <div *ngIf="products">
+    <div *ngIf="messages" class="element-list">
 
-      <div *ngFor="let product of products">
-        <div class="row mx-3 mb-3" style="background: #212529; border-radius: 5px">
-          <div class="col-auto my-1">
-            <img src="assets/img/electric-guitar.png" alt="product" style="color: white">
-          </div>
-          <div class="col" style="color: white">
-            <h3>{{product.name}}</h3>
-            <h4>{{product.description}}</h4>
-            <h5>Condition: {{product.condition}}</h5>
-            <h5>Price: {{product.price}}€</h5>
-          </div>
-          <div class="col">
-            <button class="btn btn-light mt-3 remove" (click)="removeProduct(product)">-</button>
-          </div>
+      <div class="row mx-3">
+
+        <div class="col float-start">
+          <h2 class="mx-3">News</h2>
         </div>
+        <div class="col float-end my-2">
+          <button type="button" class="btn btn-dark btn-outline-light mx-1 my-1" data-toggle="modal"
+                  data-target="#messageModal" style="float: right;">+</button>
+        </div>
+
+      </div>
+
+      <div *ngFor="let message of messages">
+        <app-message-card [message]="message" (remove)="removeMessage($event)"></app-message-card>
       </div>
     </div>
+
+    <div *ngIf="products" class="element-list my-3">
+
+      <div class="row mx-3">
+
+        <div class="col float-start">
+          <h2 class="mx-3">Products</h2>
+        </div>
+        <div class="col float-end my-2">
+          <button type="button" class="btn btn-dark btn-outline-light" data-toggle="modal"
+                  data-target="#productModal" style="float: right;">+</button>
+        </div>
+
+      </div>
+
+      <div *ngFor="let product of products">
+        <app-product-card [product]="product" (remove)="removeProduct($event)"></app-product-card>
+      </div>
+    </div>
+
+  </div>
+
+  <div class="row mx-3 mb-3">
+
+    <button type="button" class="btn btn-light btn-outline-dark" data-toggle="modal"
+            data-target="#messageModal" style="float: right;">Publish news...</button>
 
   </div>
 
@@ -81,37 +106,72 @@
     <div class="modal-content"
          style="background: #212529; color: white">
       <div class="modal-header">
-        <h5 class="modal-title">Modal title</h5>
+        <h5 class="modal-title">New Product</h5>
       </div>
       <div class="modal-body">
 
         <form style="color: white" [formGroup]="productForm">
 
-          <div class="input-group mb-3">
-            <input type="text" class="form-control"
+          <div class="form-group mb-3">
+            <input type="text" class="form-control" aria-describedby="productNameHelp"
                    formControlName="productName">
+            <small id="productNameHelp" class="form-text text-info">Enter the product's name.</small>
           </div>
 
-          <div class="input-group mb-3">
-            <input type="text" class="form-control"
+          <div class="form-group mb-3">
+            <input type="text" class="form-control" aria-describedby="productDescHelp"
                    formControlName="productDescription">
+            <small id="productDescHelp" class="form-text text-info">Describe your product.</small>
           </div>
 
-          <div class="input-group mb-3">
-            <input type="text" class="form-control"
+          <div class="form-group mb-3">
+            <input type="text" class="form-control" aria-describedby="productConditionHelp"
                    formControlName="productCondition">
+            <small id="productConditionHelp" class="form-text text-info">What condition does it have?</small>
           </div>
 
-          <div class="input-group mb-3">
-            <input type="text" class="form-control"
+          <div class="form-group mb-3">
+            <input type="text" class="form-control" aria-describedby="productPriceHelp"
                    formControlName="productPrice">
+            <small id="productPriceHelp" class="form-text text-info">Add the price.</small>
           </div>
         </form>
 
       </div>
       <div class="modal-footer">
         <button type="button" class="btn btn-dark btn-outline-light" data-dismiss="modal">Close</button>
-        <button type="button" class="btn btn-light btn-outline-dark" (click)="addNewProduct()">Save product</button>
+        <button type="button" class="btn btn-light btn-outline-dark" (click)="addNewProduct()">Add</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="modal fade"
+     id="messageModal"
+     aria-hidden="false">
+  <div class="modal-dialog modal-xl"
+       role="document">
+    <div class="modal-content"
+         style="background: #212529; color: white">
+      <div class="modal-header">
+        <h5 class="modal-title">Publish News</h5>
+      </div>
+      <div class="modal-body">
+
+        <form style="color: white" [formGroup]="messageForm">
+
+          <div class="form-group mb-3">
+            <input type="text" class="form-control" aria-describedby="messageTextHelp"
+                   formControlName="messageText">
+            <small id="messageTextHelp" class="form-text text-info">Add your news.</small>
+          </div>
+
+        </form>
+
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-dark btn-outline-light" data-dismiss="modal">Close</button>
+        <button type="button" class="btn btn-light btn-outline-dark" (click)="addNewMessage()">Publish</button>
       </div>
     </div>
   </div>

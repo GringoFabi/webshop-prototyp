@@ -11,6 +11,7 @@ import {ApiService} from "../../api/api.service";
 export class ShopEditComponent implements OnInit {
   shop: any;
   products: any;
+  messages: any;
 
   shopEditForm = new FormGroup({
     description: new FormControl(''),
@@ -21,6 +22,9 @@ export class ShopEditComponent implements OnInit {
     productDescription: new FormControl('Product description'),
     productCondition: new FormControl('Product condition'),
     productPrice: new FormControl('Product price'),
+  });
+  messageForm = new FormGroup({
+    messageText: new FormControl('enter your message'),
   });
 
   constructor(private apiService: ApiService,
@@ -35,6 +39,7 @@ export class ShopEditComponent implements OnInit {
       })
 
       this.apiService.getProducts().subscribe(value => this.products = value);
+      this.apiService.getMessages().subscribe(value => this.messages = value);
     }
   }
 
@@ -58,7 +63,25 @@ export class ShopEditComponent implements OnInit {
       description: productDescription,
       condition: productCondition,
       price: productPrice,
+    };
+    this.products.push(newProduct);
+  }
+
+  addNewMessage() {
+    const {messageText} = this.messageForm.value;
+    let newMessage = {
+      text: messageText,
+      date: new Date(),
+    };
+    this.messages.push(newMessage);
+  }
+
+  removeMessage(message: any) {
+    for (let m of this.messages) {
+      if (m.date == message.date) {
+        let index = this.messages.indexOf(m, 0);
+        this.messages.splice(index, 1);
+      }
     }
-    this.products.push(newProduct)
   }
 }
