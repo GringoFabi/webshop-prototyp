@@ -2,26 +2,19 @@
 
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 12.0.1.
 
-## Development server
+## Technical Requirements
+The client is built with Angular using npm for its package management.
+Therefore, [Node.js](https://nodejs.org/en/) is required to run the client.
+Apart from that, it is recommended to get [Angular CLI](https://github.com/angular/angular-cli).
+The server is built with [Golang](https://golang.org/) which must be installed to run the server.
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The app will automatically reload if you change any of the source files.
+## Starting the Client
 
-## Code scaffolding
+To run the client start of by switching into the [root directory](../webshop-prototype) and install the node modules via `npm install`.
+When finished, in the same directory run `ng serve` for a dev server. Navigate to `http://localhost:4200/` to start using the webapp.
 
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
+## Starting the Server
 
-## Build
+To run the server switch to the server's [main](/server/src/main) source directory and install the golang dependencies.
+When done start the server by running `go run server.go` from the same directory.
 
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory.
-
-## Running unit tests
-
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
-
-## Running end-to-end tests
-
-Run `ng e2e` to execute the end-to-end tests via a platform of your choice. To use this command, you need to first add a package that implements end-to-end testing capabilities.
-
-## Further help
-
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI Overview and Command Reference](https://angular.io/cli) page.
