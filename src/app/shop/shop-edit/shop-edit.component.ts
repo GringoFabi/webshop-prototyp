@@ -23,6 +23,9 @@ export class ShopEditComponent implements OnInit {
     productCondition: new FormControl('Product condition'),
     productPrice: new FormControl('Product price'),
   });
+  messageForm = new FormGroup({
+    messageText: new FormControl('enter your message'),
+  });
 
   constructor(private apiService: ApiService,
               private readonly shopService: ShopService) { }
@@ -60,8 +63,17 @@ export class ShopEditComponent implements OnInit {
       description: productDescription,
       condition: productCondition,
       price: productPrice,
-    }
-    this.products.push(newProduct)
+    };
+    this.products.push(newProduct);
+  }
+
+  addNewMessage() {
+    const {messageText} = this.messageForm.value;
+    let newMessage = {
+      text: messageText,
+      date: new Date(),
+    };
+    this.messages.push(newMessage);
   }
 
   removeMessage(message: any) {
