@@ -9,7 +9,10 @@
       <div class="media-body mx-3 mt-1">
         <h5 class="mt-0">{{shop.name}}</h5>
         <p>Shop Description.</p>
-        <button class="btn btn-light mb-3" (click)="openEditor(shop)">Edit</button>
+        <div class="col my-3">
+          <button class="btn btn-light mx-3" (click)="openEditor(shop)">Edit</button>
+          <button class="btn btn-light" (click)="openSalesBook()">Sales Book</button>
+        </div>
       </div>
     </div>
 

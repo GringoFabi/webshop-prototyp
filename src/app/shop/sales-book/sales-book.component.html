@@ -1,0 +1,29 @@
+
+<h1 style="color: white">Sales</h1>
+<div class="col" *ngIf="this.sales">
+  <div class="col my-3" *ngFor="let sale of this.sales">
+
+    <div class="row mx-3 mb-3" style="background: #212529; border-radius: 5px">
+      <div class="col-auto my-1">
+          <img src="assets/img/electric-guitar.png" alt="product" style="color: white; cursor: pointer; max-width: 64px"
+               data-toggle="modal" data-target="#galleryModal">
+      </div>
+      <div class="col" style="color: white">
+        <h5>{{sale.name}}</h5>
+        <h5>{{sale.price}}€</h5>
+        <h5>Sold: {{sale.soldAt}}</h5>
+      </div>
+    </div>
+
+  </div>
+
+  <hr style="color: white">
+
+  <div class="col my-3">
+    <div class="row mx-3 mb-3" style="background: #212529; border-radius: 5px">
+      <div class="col" style="color: white">
+        <h3>Sold in total: {{this.calcTotal()}}</h3>
+      </div>
+    </div>
+  </div>
+</div>

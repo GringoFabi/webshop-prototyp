@@ -11,6 +11,7 @@ export class ShopService {
   constructor() { }
 
   sellProduct(product: any) {
+    product.soldAt = new Date();
     this.soldProducts.push(product);
   }
 }

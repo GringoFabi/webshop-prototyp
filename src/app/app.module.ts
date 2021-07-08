@@ -16,6 +16,7 @@ import { DashboardComponent } from './shop/dashboard/dashboard.component';
 import { ProductCardComponent } from './shop/product-card/product-card.component';
 import { MessageCardComponent } from './shop/message-card/message-card.component';
 import { CategoryEditComponent } from './shop/category-edit/category-edit.component';
+import { SalesBookComponent } from './shop/sales-book/sales-book.component';
 
 @NgModule({
   declarations: [
@@ -29,7 +30,8 @@ import { CategoryEditComponent } from './shop/category-edit/category-edit.compon
     DashboardComponent,
     ProductCardComponent,
     MessageCardComponent,
-    CategoryEditComponent
+    CategoryEditComponent,
+    SalesBookComponent
   ],
     imports: [
         BrowserModule,

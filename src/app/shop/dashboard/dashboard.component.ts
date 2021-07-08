@@ -34,6 +34,10 @@ export class DashboardComponent implements OnInit {
 
   openEditor(shop: any) {
     this.shopService.activeShop = shop;
-    this.router.navigate([`/shop/edit/${shop.name}`])
+    this.router.navigate([`/shop/edit/${shop.name}`]);
+  }
+
+  openSalesBook() {
+    this.router.navigate([`/shop/sales/${this.shopService.currentEmail}`])
   }
 }

@@ -7,6 +7,7 @@ import {ShopPageComponent} from "./shop/shop-page/shop-page.component";
 import {ShopOwnerComponent} from "./shop/shop-owner/shop-owner.component";
 import {ShopEditComponent} from "./shop/shop-edit/shop-edit.component";
 import {DashboardComponent} from "./shop/dashboard/dashboard.component";
+import {SalesBookComponent} from "./shop/sales-book/sales-book.component";
 
 const routes: Routes = [
   { path: '', component: HomeComponent},
@@ -16,7 +17,8 @@ const routes: Routes = [
   { path: 'shop/:name', component: ShopPageComponent},
   { path: 'shop/owner/:shopName', component: ShopEditComponent},
   { path: 'shop/dashboard/:email', component: DashboardComponent},
-  { path: 'shop/edit/:name', component: ShopEditComponent}
+  { path: 'shop/edit/:name', component: ShopEditComponent},
+  { path: "shop/sales/:email", component: SalesBookComponent}
 ];
 
 @NgModule({
