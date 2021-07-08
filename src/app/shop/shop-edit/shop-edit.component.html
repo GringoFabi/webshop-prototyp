@@ -79,7 +79,26 @@
       </div>
     </div>
 
+    <div *ngIf="this.categories.length > 0">
+
+      <div class="row mx-3 element-list my-3" *ngFor="let category of categories">
+
+        <div class="col float-start">
+          <h2 class="mx-3">{{category.title}}</h2>
+        </div>
+        <div class="col float-end my-2">
+          <button type="button" class="btn btn-dark btn-outline-light" style="float: right;">+</button>
+        </div>
+
+      </div>
+
+    </div>
+
+
+
   </div>
+
+  <app-category-edit (category)="onNewCategory($event)"></app-category-edit>
 
   <div class="row mx-3 mb-3">
 
@@ -163,7 +182,7 @@
           <div class="form-group mb-3">
 
             <textarea contenteditable="true" type="text" class="form-control" aria-describedby="messageTextHelp"
-                 formControlName="messageText" style="min-height: 10em; overflow: auto"></textarea>
+                      formControlName="messageText" style="min-height: 10em; overflow: auto"></textarea>
             <small id="messageTextHelp" class="form-text text-info">Add your news.</small>
           </div>
 

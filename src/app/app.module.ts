@@ -15,6 +15,7 @@ import { ShopEditComponent } from './shop/shop-edit/shop-edit.component';
 import { DashboardComponent } from './shop/dashboard/dashboard.component';
 import { ProductCardComponent } from './shop/product-card/product-card.component';
 import { MessageCardComponent } from './shop/message-card/message-card.component';
+import { CategoryEditComponent } from './shop/category-edit/category-edit.component';
 
 @NgModule({
   declarations: [
@@ -27,7 +28,8 @@ import { MessageCardComponent } from './shop/message-card/message-card.component
     ShopEditComponent,
     DashboardComponent,
     ProductCardComponent,
-    MessageCardComponent
+    MessageCardComponent,
+    CategoryEditComponent
   ],
     imports: [
         BrowserModule,

@@ -12,6 +12,7 @@ export class ShopEditComponent implements OnInit {
   shop: any;
   products: any;
   messages: any;
+  categories: any[] = [];
 
   shopEditForm = new FormGroup({
     description: new FormControl(''),
@@ -83,5 +84,9 @@ export class ShopEditComponent implements OnInit {
         this.messages.splice(index, 1);
       }
     }
+  }
+
+  onNewCategory(category: any) {
+    this.categories.push(category);
   }
 }

@@ -1,0 +1,38 @@
+<div class="row mx-3 mb-3">
+
+  <button type="button" class="btn btn-light btn-outline-dark" data-toggle="modal"
+          data-target="#categoryModal" style="float: right;">Add new category...</button>
+
+</div>
+
+<div class="modal fade"
+     id="categoryModal"
+     aria-hidden="false">
+  <div class="modal-dialog modal-xl"
+       role="document">
+    <div class="modal-content"
+         style="background: #212529; color: white">
+      <div class="modal-header">
+        <h5 class="modal-title">New Category</h5>
+      </div>
+      <div class="modal-body">
+
+        <form style="color: white" [formGroup]="categoryForm">
+
+          <div class="form-group mb-3">
+
+            <input type="text" class="form-control" aria-describedby="messageTextHelp"
+                   formControlName="title"/>
+            <small id="messageTextHelp" class="form-text text-info">Add a title to your new category.</small>
+          </div>
+
+        </form>
+
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-dark btn-outline-light" data-dismiss="modal">Close</button>
+        <button type="button" class="btn btn-light btn-outline-dark" (click)="addNewCategory()" data-dismiss="modal">Add</button>
+      </div>
+    </div>
+  </div>
+</div>

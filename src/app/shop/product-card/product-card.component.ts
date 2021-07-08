@@ -17,8 +17,7 @@ export class ProductCardComponent implements OnInit {
   }
 
   ngOnInit(): void {
-    this.product.imageURLs = []
-    console.log(this.product);
+    this.product.imageURLs = [];
   }
 
   removeProduct(product: any) {
