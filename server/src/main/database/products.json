@@ -1,19 +1,19 @@
 [
   {
     "name": "Squier Mini by Fender",
-    "price": 80.0,
+    "price": 80.00,
     "description": "Schwarze E-Gitarre, Marke: Fender",
     "condition": "Gebraucht"
   },
   {
     "name": "Cherrystone Gitarre",
-    "price": 39.90,
+    "price": 39.99,
     "description": "Akustik, Western Style",
     "condition": "Neu"
   },
   {
     "name": "Harlem Headless",
-    "price": 189.0,
+    "price": 189.00,
     "description": "Trans Black E-Gitarre, Marke: Gear4music",
     "condition": "Generalüberholt"
   },

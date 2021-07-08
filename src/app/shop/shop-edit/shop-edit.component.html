@@ -131,7 +131,7 @@
           </div>
 
           <div class="form-group mb-3">
-            <input type="text" class="form-control" aria-describedby="productPriceHelp"
+            <input type="number" min="0" step="0.01" class="form-control" aria-describedby="productPriceHelp"
                    formControlName="productPrice">
             <small id="productPriceHelp" class="form-text text-info">Add the price.</small>
           </div>
@@ -140,7 +140,7 @@
       </div>
       <div class="modal-footer">
         <button type="button" class="btn btn-dark btn-outline-light" data-dismiss="modal">Close</button>
-        <button type="button" class="btn btn-light btn-outline-dark" (click)="addNewProduct()">Add</button>
+        <button type="button" class="btn btn-light btn-outline-dark" (click)="addNewProduct()" data-dismiss="modal">Add</button>
       </div>
     </div>
   </div>
@@ -161,8 +161,9 @@
         <form style="color: white" [formGroup]="messageForm">
 
           <div class="form-group mb-3">
-            <input type="text" class="form-control" aria-describedby="messageTextHelp"
-                   formControlName="messageText">
+
+            <textarea contenteditable="true" type="text" class="form-control" aria-describedby="messageTextHelp"
+                 formControlName="messageText" style="min-height: 10em; overflow: auto"></textarea>
             <small id="messageTextHelp" class="form-text text-info">Add your news.</small>
           </div>
 
@@ -171,7 +172,7 @@
       </div>
       <div class="modal-footer">
         <button type="button" class="btn btn-dark btn-outline-light" data-dismiss="modal">Close</button>
-        <button type="button" class="btn btn-light btn-outline-dark" (click)="addNewMessage()">Publish</button>
+        <button type="button" class="btn btn-light btn-outline-dark" (click)="addNewMessage()" data-dismiss="modal">Publish</button>
       </div>
     </div>
   </div>
