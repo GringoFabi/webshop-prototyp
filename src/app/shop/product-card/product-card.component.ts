@@ -1,4 +1,5 @@
 import {Component, Input, OnInit, Output, EventEmitter} from '@angular/core';
+import {ShopService} from "../shop.service";
 
 @Component({
   selector: 'app-product-card',
@@ -12,7 +13,7 @@ export class ProductCardComponent implements OnInit {
 
   numbers: number[];
 
-  constructor( ) {
+  constructor(private readonly shopService: ShopService) {
     this.numbers = Array(5).fill(0).map((x,i)=>i);
   }
 
@@ -37,5 +38,10 @@ export class ProductCardComponent implements OnInit {
       imageUrl = reader.result;
       this.product.imageURLs.push(imageUrl);
     }
+  }
+
+  sellProduct(product: any) {
+    this.shopService.sellProduct(product);
+    this.removeProduct(product);
   }
 }

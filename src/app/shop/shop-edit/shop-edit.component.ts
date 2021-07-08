@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import {ShopService} from "../shop.service";
 import {FormControl, FormGroup} from "@angular/forms";
 import {ApiService} from "../../api/api.service";
+import {Router} from "@angular/router";
 
 @Component({
   selector: 'app-shop-edit',
@@ -29,7 +30,8 @@ export class ShopEditComponent implements OnInit {
   });
 
   constructor(private apiService: ApiService,
-              private readonly shopService: ShopService) { }
+              private readonly shopService: ShopService,
+              private router: Router) { }
 
   ngOnInit(): void {
     if (this.shopService.activeShop) {
@@ -45,7 +47,7 @@ export class ShopEditComponent implements OnInit {
   }
 
   onSubmit() {
-    // todo
+    this.router.navigate([`/shop/dashboard/${this.shopService.currentEmail}`]);
   }
 
   removeProduct(product: any) {

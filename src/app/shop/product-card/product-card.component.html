@@ -12,7 +12,29 @@
     <h5>Price: {{product.price}}€</h5>
   </div>
   <div class="col">
-    <button class="btn btn-light mt-3 remove" (click)="removeProduct(product)">-</button>
+    <button class="btn btn-light mt-3 remove" data-toggle="modal" data-target="#removeModal">-</button>
+  </div>
+</div>
+
+<div class="modal fade"
+     id="removeModal"
+     aria-hidden="false">
+  <div class="modal-dialog"
+       role="document">
+    <div class="modal-content"
+         style="background: #212529; color: white">
+      <div class="modal-header">
+        <h5 class="modal-title">Removing Product</h5>
+      </div>
+      <div class="modal-body">
+        <p>You are about to remove the product: {{product.name}}. Did you sell it or are you simply removing it from stock?</p>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-dark btn-outline-light" data-dismiss="modal">Close</button>
+        <button type="button" class="btn btn-light btn-outline-dark" data-dismiss="modal" (click)="sellProduct(product)">Sold</button>
+        <button type="button" class="btn btn-light btn-outline-dark" data-dismiss="modal" (click)="removeProduct(product)">Remove</button>
+      </div>
+    </div>
   </div>
 </div>
 

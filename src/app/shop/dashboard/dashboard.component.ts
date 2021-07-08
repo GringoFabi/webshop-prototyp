@@ -25,6 +25,7 @@ export class DashboardComponent implements OnInit {
       const url = this.router.url;
       let lastIndexOf = url.lastIndexOf('/');
       const email = url.slice(lastIndexOf + 1, url.length);
+      this.shopService.currentEmail = email;
       this.apiService.getShopsByEmail(email).subscribe(value => {
         this.shops = value;
       });
