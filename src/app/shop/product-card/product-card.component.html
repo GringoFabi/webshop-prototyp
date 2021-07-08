@@ -1,6 +1,9 @@
 <div class="row mx-3 mb-3" style="background: #212529; border-radius: 5px">
   <div class="col-auto my-1">
-    <img src="assets/img/electric-guitar.png" alt="product" style="color: white">
+    <div *ngIf="this.product.imageURLs.length > 0 ; else defaultImage">
+      <img src="{{this.product.imageURLs[0]}}" alt="product" style="max-width: 128px; max-height: 128px; cursor: pointer"
+           data-toggle="modal" data-target="#galleryModal">
+    </div>
   </div>
   <div class="col" style="color: white">
     <h3>{{product.name}}</h3>
@@ -12,3 +15,47 @@
     <button class="btn btn-light mt-3 remove" (click)="removeProduct(product)">-</button>
   </div>
 </div>
+
+<div class="modal fade"
+     id="galleryModal"
+     aria-hidden="false">
+  <div class="modal-dialog modal-xl"
+       role="document">
+    <div class="modal-content"
+         style="background: #212529; color: white">
+      <div class="modal-header">
+        <h5 class="modal-title">Add Images</h5>
+      </div>
+      <div class="modal-body">
+
+        <div class="col">
+          <div class="row mx-3 my-3" *ngIf="this.product.imageURLs.length > 0; else defaultRow" style="float: left; width: 100%">
+            <div class="col" *ngFor="let url of this.product.imageURLs">
+              <img src="{{url}}" alt="prod_preview" style="max-width: 64px; max-height: 64px">
+            </div>
+          </div>
+          <div class="row my-3">
+            <input type="file" accept="image/*" (change)="fileChangeEvent($event)">
+          </div>
+        </div>
+
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-dark btn-outline-light" data-dismiss="modal">Finish</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<ng-template #defaultImage>
+  <img src="assets/img/electric-guitar.png" alt="product" style="color: white; cursor: pointer"
+       data-toggle="modal" data-target="#galleryModal">
+</ng-template>
+
+<ng-template #defaultRow>
+  <div class="row">
+    <div class="col" *ngFor="let number of numbers">
+      <img src="assets/img/electric-guitar.png" alt="product" style="color: white">
+    </div>
+  </div>
+</ng-template>
