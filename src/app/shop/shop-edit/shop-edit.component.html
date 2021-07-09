@@ -75,7 +75,7 @@
       </div>
 
       <div *ngFor="let product of products">
-        <app-product-card [product]="product" (remove)="removeProduct($event)"></app-product-card>
+        <app-product-card [product]="product" (remove)="removeProduct($event)" id="{{product.name}}"></app-product-card>
       </div>
     </div>
 

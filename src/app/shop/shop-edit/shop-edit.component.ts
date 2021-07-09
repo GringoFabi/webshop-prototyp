@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, OnInit} from '@angular/core';
 import {ShopService} from "../shop.service";
 import {FormControl, FormGroup} from "@angular/forms";
 import {ApiService} from "../../api/api.service";
@@ -23,7 +23,7 @@ export class ShopEditComponent implements OnInit {
     productName: new FormControl('Product name'),
     productDescription: new FormControl('Product description'),
     productCondition: new FormControl('Product condition'),
-    productPrice: new FormControl('Product price'),
+    productPrice: new FormControl(0.00),
   });
   messageForm = new FormGroup({
     messageText: new FormControl('enter your message'),
@@ -41,9 +41,24 @@ export class ShopEditComponent implements OnInit {
         owner: this.shop.owner
       })
 
-      this.apiService.getProducts().subscribe(value => this.products = value);
+      this.apiService.getProducts().subscribe(value => {
+        this.products = value.sort(this.sortByName);
+        this.shopService.currentProducts = this.products;
+      });
       this.apiService.getMessages().subscribe(value => this.messages = value);
     }
+  }
+
+  private sortByName(a: any, b: any) {
+    const nameA = a.name.toUpperCase();
+    const nameB = b.name.toUpperCase();
+    if (nameA < nameB) {
+      return -1;
+    }
+    if (nameA > nameB) {
+      return 1;
+    }
+    return 0;
   }
 
   onSubmit() {
@@ -55,6 +70,7 @@ export class ShopEditComponent implements OnInit {
       if (p.name == product.name) {
         let index = this.products.indexOf(p, 0);
         this.products.splice(index, 1);
+        this.shopService.currentProducts = this.products;
       }
     }
   }
@@ -68,6 +84,8 @@ export class ShopEditComponent implements OnInit {
       price: productPrice,
     };
     this.products.push(newProduct);
+    this.products = this.products.sort(this.sortByName);
+    this.shopService.currentProducts = this.products;
   }
 
   addNewMessage() {

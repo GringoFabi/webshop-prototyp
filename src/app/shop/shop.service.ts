@@ -7,6 +7,8 @@ export class ShopService {
   activeShop: any;
   soldProducts: any[] = [];
   currentEmail = '';
+  currentProducts: any[] = [];
+  activeProduct: any;
 
   constructor() { }
 
